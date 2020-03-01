@@ -16,4 +16,8 @@ public class ParkingLot implements Comparable<ParkingLot> {
     public int compareTo(ParkingLot o) {
         return Integer.compare(this.sortIndex, o.sortIndex);
     }
+
+    public Ticket parking(Car car) {
+        return TicketFactory.createNewTicket(car);
+    }
 }
