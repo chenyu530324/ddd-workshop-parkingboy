@@ -4,14 +4,16 @@ public class ParkingLot implements Comparable<ParkingLot> {
 
     private final int sortIndex;
     private final int capacity;
+    private String serialNumber;
 
-    public ParkingLot(int sortIndex, int capacity) {
+    public ParkingLot(int sortIndex, int capacity, String serialNumber) {
         this.sortIndex = sortIndex;
         this.capacity = capacity;
+        this.serialNumber = serialNumber;
     }
 
-    public static ParkingLot of(int sortIndex, int capacity) {
-        return new ParkingLot(sortIndex, capacity);
+    public static ParkingLot of(int sortIndex, int capacity, String serialNumber) {
+        return new ParkingLot(sortIndex, capacity, serialNumber);
     }
 
     @Override
@@ -21,12 +23,16 @@ public class ParkingLot implements Comparable<ParkingLot> {
 
     public Ticket parking(Car car) {
         if (!hasCapacity()) {
-            throw new RuntimeException("ParkingLot doesn't have capacity");
+            return null;
         }
-        return TicketFactory.createNewTicket(car);
+        return TicketFactory.createNewTicket(car, this);
     }
 
     private boolean hasCapacity() {
         return this.capacity > 0;
+    }
+
+    public String getSerialNumber() {
+        return this.serialNumber;
     }
 }
