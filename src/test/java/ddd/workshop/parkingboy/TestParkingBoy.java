@@ -12,9 +12,9 @@ public class TestParkingBoy {
     @Test
     public void could_set_parkingLots_for_parkingBoy() {
         List<ParkingLot> parkingLots = new ArrayList<>();
-        ParkingLot parkingLot1 = ParkingLot.of(1);
-        ParkingLot parkingLot2 = ParkingLot.of(2);
-        ParkingLot parkingLot3 = ParkingLot.of(3);
+        ParkingLot parkingLot1 = ParkingLot.of(1, 0);
+        ParkingLot parkingLot2 = ParkingLot.of(2, 0);
+        ParkingLot parkingLot3 = ParkingLot.of(3, 0);
         parkingLots.add(parkingLot2);
         parkingLots.add(parkingLot3);
         parkingLots.add(parkingLot1);
