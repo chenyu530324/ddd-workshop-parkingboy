@@ -2,31 +2,30 @@
 
 
 Class ParkingBoy << Entity >> {
-  ParkingLot[] parkingLots
+  List<ParkingLot> parkingLots
 
   + Ticket park(Car car)
-  + Car take(Ticket ticket)
 
   + void setParkingLots (ParkingLot[] parkingLots)
-  + ParkingLot[] getParkingLots()
+  + List<ParkingLot> getParkingLots()
 }
 
 
 class ParkingLot << Entity >> {
+  String serialNumber
   int capacity 
-  Map <Ticket, Car> parkedCars
-
+  int sortIndex;
   + Ticket park(Car car)
-  + Car take(Ticket ticket)
 }
 
 
 Class Car << Value Object >> {
-    PlateNumber plateNumber
+    String plateNumber
 }
 
 Class Ticket << Value Object >> {
-  + Boolean validate()
+  String carPlateNumber;
+  String parkingLotSerialNumber;
 }
 
 Ticket "1" *--> "1" Car
