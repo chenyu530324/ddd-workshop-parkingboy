@@ -3,7 +3,7 @@ package ddd.workshop.parkingboy;
 public class ParkingLot implements Comparable<ParkingLot> {
 
     private final int sortIndex;
-    private final int capacity;
+    private int capacity;
     private String serialNumber;
 
     public ParkingLot(int sortIndex, int capacity, String serialNumber) {
@@ -25,6 +25,7 @@ public class ParkingLot implements Comparable<ParkingLot> {
         if (!hasCapacity()) {
             return null;
         }
+        this.capacity --;
         return TicketFactory.createNewTicket(car, this);
     }
 
@@ -34,5 +35,9 @@ public class ParkingLot implements Comparable<ParkingLot> {
 
     public String getSerialNumber() {
         return this.serialNumber;
+    }
+
+    public int getCapacity() {
+        return this.capacity;
     }
 }

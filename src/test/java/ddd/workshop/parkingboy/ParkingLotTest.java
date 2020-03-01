@@ -15,6 +15,7 @@ public class ParkingLotTest {
         Ticket ticket = parkingLot.parking(car);
         assertNotNull(ticket);
         assertEquals(ticket.getCarPlateNumber(), car.getPlateNumber());
+        assertEquals(1, parkingLot.getCapacity());
     }
 
     @Test
