@@ -11,8 +11,6 @@ import static org.junit.Assert.assertNull;
 
 public class TestParkingBoy {
 
-    private static final String PLATE_NUMBER = "PLATE_NUMBER";
-
     @Test
     public void could_set_parkingLots_for_parkingBoy() {
         List<ParkingLot> parkingLots = new ArrayList<>();
@@ -39,11 +37,9 @@ public class TestParkingBoy {
         parkingLots.add(parkingLot1);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
 
-        Car car = new Car(PLATE_NUMBER);
-        Ticket ticket = parkingBoy.parking(car);
-        assertNotNull(ticket);
-        assertEquals("PLATE_NUMBER", ticket.getCarPlateNumber());
-        assertEquals(ticket.getParkingLotSerialNumber(), "PARKING_LOT_2");
+        ParkingLot parkingLot = parkingBoy.choseParkingLot();
+        assertNotNull(parkingLot);
+        assertEquals(parkingLot.getSerialNumber(), "PARKING_LOT_2");
     }
 
     @Test
@@ -57,8 +53,7 @@ public class TestParkingBoy {
         parkingLots.add(parkingLot1);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
 
-        Car car = new Car(PLATE_NUMBER);
-        Ticket ticket = parkingBoy.parking(car);
-        assertNull(ticket);
+        ParkingLot parkingLot = parkingBoy.choseParkingLot();
+        assertNull(parkingLot);
     }
 }

@@ -22,14 +22,14 @@ public class ParkingLot implements Comparable<ParkingLot> {
     }
 
     Ticket parking(Car car) {
-        if (!hasCapacity()) {
+        if (!isAvailable()) {
             return null;
         }
         this.capacity --;
         return new Ticket(car, this);
     }
 
-    private boolean hasCapacity() {
+    boolean isAvailable() {
         return this.capacity > 0;
     }
 
@@ -40,4 +40,5 @@ public class ParkingLot implements Comparable<ParkingLot> {
     int getCapacity() {
         return this.capacity;
     }
+
 }

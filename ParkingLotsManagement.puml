@@ -4,20 +4,17 @@
 Class ParkingBoy << Entity >> {
   List<ParkingLot> parkingLots
 
-  + Ticket park(Car car)
-
+  + ParkingLot chooseParkingLot()
   + void setParkingLots (ParkingLot[] parkingLots)
   + List<ParkingLot> getParkingLots()
 }
 
-
 class ParkingLot << Entity >> {
   String serialNumber
   int capacity 
-  int sortIndex;
+  int sortIndex
   + Ticket park(Car car)
 }
-
 
 Class Car << Value Object >> {
     String plateNumber
@@ -31,8 +28,6 @@ Class Ticket << Value Object >> {
 Ticket "1" *--> "1" Car
 ParkingLot "1" o--> "0..many" Ticket
 ParkingBoy "1" o--> "0..many" ParkingLot
-
-
 
 
 @enduml
