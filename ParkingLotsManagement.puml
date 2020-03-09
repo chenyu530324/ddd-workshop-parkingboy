@@ -1,5 +1,9 @@
 @startuml
 
+class ParkingManager {
+    List<ParkingBoy> parkingBoys
+}
+
 Interface ChoseParkingLot {
   ParkingLot chooseParkingLot()
 }
@@ -39,6 +43,7 @@ Class Ticket << Value Object >> {
 Ticket "1" *--> "1" Car
 ParkingLot "1" o--> "0..many" Ticket
 ParkingBoy "1" o--> "0..many" ParkingLot
+ParkingManager "1" o--> "0..many" ParkingBoy
 ChoseParkingLot <|-- ParkingBoy
 ParkingBoy <|-- JuniorParkingBoy
 ParkingBoy <|-- SeniorParkingBoy
