@@ -42,7 +42,7 @@ public class TestParkingBoy {
         Car car = new Car(PLATE_NUMBER);
         Ticket ticket = parkingBoy.parking(car);
         assertNotNull(ticket);
-        assertEquals(ticket.getCarPlateNumber(), "PLATE_NUMBER");
+        assertEquals("PLATE_NUMBER", ticket.getCarPlateNumber());
         assertEquals(ticket.getParkingLotSerialNumber(), "PARKING_LOT_2");
     }
 

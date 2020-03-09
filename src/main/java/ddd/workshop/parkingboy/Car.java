@@ -8,7 +8,7 @@ public class Car {
         this.plateNumber = plateNumber;
     }
 
-    public String getPlateNumber() {
+    String getPlateNumber() {
         return plateNumber;
     }
 }

@@ -13,11 +13,11 @@ public class ParkingBoy {
         this.parkingLots = parkingLots;
     }
 
-    public List<ParkingLot> getParkingLots() {
+    List<ParkingLot> getParkingLots() {
         return this.parkingLots;
     }
 
-    public Ticket parking(Car car) {
+    Ticket parking(Car car) {
         Ticket ticket = null;
         Iterator<ParkingLot> parkingLotList = parkingLots.iterator();
         while (null == ticket && parkingLotList.hasNext()) {

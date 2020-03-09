@@ -12,7 +12,7 @@ public class ParkingLot implements Comparable<ParkingLot> {
         this.serialNumber = serialNumber;
     }
 
-    public static ParkingLot of(int sortIndex, int capacity, String serialNumber) {
+    static ParkingLot of(int sortIndex, int capacity, String serialNumber) {
         return new ParkingLot(sortIndex, capacity, serialNumber);
     }
 
@@ -21,23 +21,23 @@ public class ParkingLot implements Comparable<ParkingLot> {
         return Integer.compare(this.sortIndex, o.sortIndex);
     }
 
-    public Ticket parking(Car car) {
+    Ticket parking(Car car) {
         if (!hasCapacity()) {
             return null;
         }
         this.capacity --;
-        return TicketFactory.createNewTicket(car, this);
+        return new Ticket(car, this);
     }
 
     private boolean hasCapacity() {
         return this.capacity > 0;
     }
 
-    public String getSerialNumber() {
+    String getSerialNumber() {
         return this.serialNumber;
     }
 
-    public int getCapacity() {
+    int getCapacity() {
         return this.capacity;
     }
 }

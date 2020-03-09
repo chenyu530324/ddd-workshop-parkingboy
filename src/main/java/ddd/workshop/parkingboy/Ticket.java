@@ -10,11 +10,11 @@ public class Ticket {
         this.parkingLotSerialNumber = parkingLot.getSerialNumber();
     }
 
-    public String getCarPlateNumber() {
+    String getCarPlateNumber() {
         return carPlateNumber;
     }
 
-    public String getParkingLotSerialNumber() {
+    String getParkingLotSerialNumber() {
         return this.parkingLotSerialNumber;
     }
 }
