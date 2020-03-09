@@ -1,6 +1,6 @@
 package ddd.workshop.parkingboy;
 
-public class ParkingLot implements Comparable<ParkingLot> {
+public class ParkingLot{
 
     private final int sortIndex;
     private int capacity;
@@ -14,11 +14,6 @@ public class ParkingLot implements Comparable<ParkingLot> {
 
     static ParkingLot of(int sortIndex, int capacity, String serialNumber) {
         return new ParkingLot(sortIndex, capacity, serialNumber);
-    }
-
-    @Override
-    public int compareTo(ParkingLot o) {
-        return Integer.compare(this.sortIndex, o.sortIndex);
     }
 
     Ticket parking(Car car) {
@@ -41,4 +36,7 @@ public class ParkingLot implements Comparable<ParkingLot> {
         return this.capacity;
     }
 
+    int getSortIndex() {
+        return sortIndex;
+    }
 }

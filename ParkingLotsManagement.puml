@@ -1,13 +1,24 @@
 @startuml
 
+Interface ChoseParkingLot {
+  ParkingLot chooseParkingLot()
+}
 
-Class ParkingBoy << Entity >> {
+Abstract Class ParkingBoy << Entity >> {
   List<ParkingLot> parkingLots
 
-  + ParkingLot chooseParkingLot()
   + void setParkingLots (ParkingLot[] parkingLots)
   + List<ParkingLot> getParkingLots()
 }
+
+Class JuniorParkingBoy << Entity >> {
+
+}
+
+Class SeniorParkingBoy << Entity >> {
+
+}
+
 
 class ParkingLot << Entity >> {
   String serialNumber
@@ -28,6 +39,10 @@ Class Ticket << Value Object >> {
 Ticket "1" *--> "1" Car
 ParkingLot "1" o--> "0..many" Ticket
 ParkingBoy "1" o--> "0..many" ParkingLot
+ChoseParkingLot <|-- ParkingBoy
+ParkingBoy <|-- JuniorParkingBoy
+ParkingBoy <|-- SeniorParkingBoy
+
 
 
 @enduml
