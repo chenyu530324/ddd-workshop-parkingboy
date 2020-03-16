@@ -2,15 +2,22 @@ package ddd.workshop.parkingboy;
 
 import java.util.List;
 
-public abstract class ParkingBoy implements ChoseParkingLot {
+public class ParkingBoy {
 
-    protected final List<ParkingLot> parkingLots;
+    private List<ParkingLot> parkingLots;
 
-    public ParkingBoy(List<ParkingLot> parkingLots) {
+    private ParkingPolicy parkingPolicy;
+
+    public ParkingBoy(List<ParkingLot> parkingLots, ParkingPolicy parkingPolicy) {
         this.parkingLots = parkingLots;
+        this.parkingPolicy = parkingPolicy;
     }
 
-    List<ParkingLot> getParkingLots() {
-        return this.parkingLots;
+    public List<ParkingLot> getParkingLots() {
+        return parkingLots;
+    }
+
+    public ParkingLot findParkingLot() {
+        return this.parkingPolicy.findParkingLog(parkingLots);
     }
 }

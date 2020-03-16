@@ -16,7 +16,8 @@ public class ParkingManagerTest {
         seniorParkingLots.add(parkingLot2);
         seniorParkingLots.add(parkingLot3);
         seniorParkingLots.add(parkingLot1);
-        ParkingBoy seniorParkingBoy = new SeniorParkingBoy(seniorParkingLots);
+        ParkingPolicy seniorParkingPolicy = new SeniorParkingPolicy();
+        ParkingBoy seniorParkingBoy = new ParkingBoy(seniorParkingLots, seniorParkingPolicy);
 
         List<ParkingLot> juniorParkingLots = new ArrayList<>();
         ParkingLot parkingLot4 = ParkingLot.of(4, 1,"PARKING_LOT_4");
@@ -25,7 +26,8 @@ public class ParkingManagerTest {
         juniorParkingLots.add(parkingLot5);
         juniorParkingLots.add(parkingLot6);
         juniorParkingLots.add(parkingLot4);
-        ParkingBoy juniorParkingBoy = new JuniorParkingBoy(juniorParkingLots);
+        ParkingPolicy juniorParkingPolicy = new SeniorParkingPolicy();
+        ParkingBoy juniorParkingBoy = new ParkingBoy(juniorParkingLots, juniorParkingPolicy);
 
         List<ParkingBoy> parkingBoys = new ArrayList<>();
         parkingBoys.add(seniorParkingBoy);
